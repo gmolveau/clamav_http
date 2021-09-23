@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  clamav-server:
+    image: mkodockx/docker-clamav@sha256:f9cd6b8c48c3d1146fc65cfb80d306c767e35222654bc8e9a711b3b38b7b7654
+    networks:
+      - clamav
+
+  clamav-rest:
+    hostname: clamav-rest
+    build:
+      context: clamav-rest
+    ports:
+      - 8080:8080
+    networks:
+      - clamav
+    environment:
+      CLAMD_HOST: clamav-server
+
+networks:
+  clamav:

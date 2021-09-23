@@ -1,0 +1,5 @@
+[submodule "clamav-rest"]
+	path = clamav-rest
+	url = https://github.com/solita/clamav-rest
+	branch = master
+	ignore = dirty
